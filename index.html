@@ -209,8 +209,8 @@ JavaScript is a very free-form language compared to Java. You do not have to dec
   </h1>
   <p>
     To get started with writing JavaScript, open the Scratchpad and write your first "Hello world" JavaScript code:</p>
-<div class="oy">function greetMe(yourName) { alert("Hello " + yourName); }
-greetMe("World");</div>
+<div class="oy"><code>function greetMe(yourName) { alert("Hello " + yourName); }
+greetMe("World");</code></div>
 <p>
 Select the code in the pad and hit Ctrl+R to watch it unfold in your browser!
 
@@ -244,17 +244,17 @@ Select the code in the pad and hit Ctrl+R to watch it unfold in your browser!
   </h1>
   <p>You can declare a variable in three ways:
 With the keyword var. For example,</p>
-<div class="oy">var x = 42.</div>
+<div class="oy"><code>var x = 42.</code></div>
 <p>This syntax can be used to declare both local and global variables.</p>
 
 <p>By simply assigning it a value. For example,</p>
-<div class="oy">x = 42.</div>
+<div class="oy"><code>x = 42.</code></div>
 <p>This always declares a global variable. It generates a strict JavaScript warning. You shouldn't use this variant.
 </p>
 <p>
 With the keyword let. For example,
 </p>
-<div class="oy">let y = 13.</div>
+<div class="oy"><code>let y = 13.</code></div>
 <p>This syntax can be used to declare a block scope local variable. See Variable scope below.</p>
 </div>
 <br>
@@ -269,11 +269,12 @@ With the keyword let. For example,
   <p>
     JavaScript before ECMAScript 2015 does not have block statement scope; rather, a variable declared within a block is local to the function (or global scope) that the block resides within. For example the following code will log 5, because the scope of x is the function (or global context) within which x is declared, not the block, which in this case is an if statement.
   </p>
- <div class="oy"> if (true) { var x = 5; } console.log(x); // 5</div>
+ <div class="oy"> <code>if (true) { var x = 5; } console.log(x); // 5</code></div>
 <p>This behavior changes, when using the let declaration introduced in ECMAScript 2015.
 </p>
-<div class="oy">if (true) { let y = 5; } console.log(y); // ReferenceError: y is
+<div class="oy"><code>if (true) { let y = 5; } console.log(y); // ReferenceError: y is
 not defined
+</code>
 </div>
 </div>
 <br>
@@ -291,22 +292,26 @@ not defined
     Constants
   </h1>
   <p>You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter, underscore or dollar sign and can contain alphabetic, numeric, or underscore characters.</p>
-  <div class="oy">const PI = 3.14;</div>
+  <div class="oy"><code>const PI = 3.14;
+  </code></div>
   <p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
   <p>The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.</p>
   <p>
     You cannot declare a constant with the same name as a function or variable in the same scope. For example:
   </p>
   <div class="oy">
-    
+    <code>
 // THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS
 WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g;
 //statements }
+</code>
 <br>
   </div>
   <p>However, object attributes are not protected, so the following statement is executed without problems.</p>
-  <div class="oy">const MY_OBJECT = {"key": "value"}; MY_OBJECT.key =
-"otherValue";</div>
+  <div class="oy">
+    <code>const MY_OBJECT = {"key": "value"}; MY_OBJECT.key =
+"otherValue";
+</code></div>
 </div>
 <br>
 <div>
@@ -346,17 +351,23 @@ WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g;
   </h1>
   <p>Use the if statement to execute a statement if a logical condition is true. Use the optional else clause to execute a statement if the condition is false. An if statement looks as follows:</p>
   <div class="oy">
+    <code>
     if (condition) { statement_1; } else { statement_2; }
+    </code>
   </div>
   <p>condition can be any expression that evaluates to true or false. See Boolean for an explanation of what evaluates to true and false. If condition evaluates to true, statement_1 is executed; otherwise, statement_2 is executed. statement_1 and statement_2 can be any statement, including further nested if statements.</p>
   <p>You may also compound the statements using else if to have multiple conditions tested in sequence, as follows:</p>
-  <div class="oy">if (condition_1) { statement_1; } else if (condition_2) {
+  <div class="oy">
+    <code>if (condition_1) { statement_1; } else if (condition_2) {
 statement_2; } else if (condition_n) { statement_n; } else {
-statement_last; }</div>
+statement_last; }
+</code></div>
 <p>In the case of multiple conditions only the first logical condition which evaluates to true will be executed. To execute multiple statements, group them within a block statement ({ ... }) . In general, it's good practice to always use block statements, especially when nesting if statements:</p>
 <div class="oy">
+  <code>
   if (condition) { statement_1_runs_if_condition_is_true;
 statement_2_runs_if_condition_is_true; } 
+</code>
 </div>
 <div class="oy">
 else {
@@ -367,14 +378,17 @@ statement_4_runs_if_condition_is_false; }
   It is advisable to not use simple assignments in a conditional expression, because the assignment can be confused with equality when glancing over the code. For example, do not use the following code:
 </p>
 <div class="oy">
+  <code>
   if (x = y) { /* statements here */ }
+  </code>
 </div>
 <p>
   If you need to use an assignment in a conditional expression, a common practice is to put additional parentheses around the assignment. For example:
 </p>
 <div class="oy">
+  <code>
   if ((x = y)) { /* statements here */ }
-
+</code>
 </div>
 </div>
 <br>
@@ -401,7 +415,9 @@ If the condition becomes false, statement within the loop stops executing and co
     Example:
 The following while loop iterates as long as n is less than three:
   </p>
-  <div class="oy">var n = 0; var x = 0; while (n < 3) { n++; x += n; }</div>
+  <div class="oy">
+    <code>var n = 0; var x = 0; while (n < 3) { n++; x += n; }
+    </code></div>
   <p>With each iteration, the loop increments n and adds that value to x. Therefore, x and n take on the following values:</p>
   <ul>
     <li>
@@ -450,13 +466,17 @@ The following while loop iterates as long as n is less than three:
 
   </p>
   <div class="oy">
-    function square(number) { return number * number; }
+    <code>
+      function square(number) { return number * number; }
+      </code>
   </div>
   <p>
     The function square takes one argument, called number. The function consists of one statement that says to return the argument of the function (that is, number) multiplied by itself. The return statement specifies the value returned by the function.
   </p>
   <div class="oy">
+    <code>
     return number * number;
+    </code>
   </div>
   <p>
     Primitive parameters (such as a number) are passed to functions by value; the value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function.
